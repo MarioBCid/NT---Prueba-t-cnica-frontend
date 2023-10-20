@@ -1,0 +1,18 @@
+<div class="container">
+    <table>
+        <tr>
+            <th>Foto</th>
+            <th>Id</th>
+            <th>Nombre</th>
+        </tr>
+        <tr (click)="openDigimon(item.id)" *ngFor="let item of data; let isLast = last" key="item.id">
+            <td *ngIf="item.id">
+                <img width="100px" height="100px" [src]="item.image" alt="Imagen-digimon" *ngIf="!isLast" />
+                <img width="100px" height="100px" [src]="item.image" alt="Imagen-digimon" *ngIf="isLast"
+                    (load)="imagenCargada()" />
+            </td>
+            <td *ngIf="item.id">{{ item.id }}</td>
+            <td *ngIf="item.id" class="name-cell">{{ item?.name || item.digimon }}</td>
+        </tr>
+    </table>
+</div>

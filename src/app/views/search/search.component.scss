@@ -1,0 +1,36 @@
+.item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.container {
+    margin-top: 12px;
+}
+
+.searchBar {
+    overflow: hidden;
+    background-color: #c5c4c4;
+    padding: 16px 10px;
+}
+
+.pagination {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.page-button {
+    margin-right: 4px;
+    margin-left: 10px;
+}
+
+select {
+    min-width: 100px;
+    border-radius: 2px;
+    padding: 4px;
+}
+
+.counter {
+    margin: 10px 0;
+}

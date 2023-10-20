@@ -1,0 +1,32 @@
+<div class="body" *ngIf="!isLoading">
+  <div class="container">
+    <div class="header">
+      <div class="id">{{ data?.id }}</div>
+      <div class="title">{{ data?.name }}</div>
+    </div>
+    <img width="320px" height="320px" [src]="data?.images[0]?.href" alt="Imagen-digimon" />
+    <div class="stats">
+      <div class="stat">
+        <div>Level</div>
+        <div *ngFor="let item of data?.levels">{{ item.level }}</div>
+      </div>
+      <div class="stat">
+        <div>Attribute</div>
+        <div *ngFor="let item of data?.attributes">{{ item.attribute }}</div>
+      </div>
+      <div class="stat">
+        <div>Type</div>
+        <div *ngFor="let item of data?.types">{{ item.type }}</div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="digimonId" class="right-column">
+    <div>Evoluciones anteriores:</div>
+    <app-table *ngIf="isTableVisible(prevEvo)" [data]="prevEvo"></app-table>
+    <p *ngIf="!isTableVisible(prevEvo)">Este digimon no tiene evoluciones anteriores.</p>
+    <div>Evoluciones posteriores:</div>
+    <app-table *ngIf="isTableVisible(postEvo)" [data]="postEvo"></app-table>
+    <p *ngIf="!isTableVisible(postEvo)">Este digimon no tiene evoluciones posteriores.</p>
+  </div>
+</div>
+<app-spinner [showSpinner]="isLoading"></app-spinner>

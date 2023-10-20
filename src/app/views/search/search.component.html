@@ -1,0 +1,33 @@
+<div class="searchBar flex jc_sa ai_c">
+    <label for="freeText">Nombre:</label>
+    <input type="text" id="freeText" [(ngModel)]="freeText" />
+
+    <label for="dropdown1">Attribute:</label>
+    <select id="dropdown1" [(ngModel)]="selectedOption1">
+        <option *ngFor="let item of attributeList" value={{item.name}}>{{ item.name }}</option>
+    </select>
+
+    <label for="dropdown2">Level:</label>
+    <select id="dropdown2" [(ngModel)]="selectedOption2">
+      <option *ngFor="let item of levelList" value={{item.name}}>{{ item.name }}</option>
+    </select>
+
+    <label for="dropdown1">Elementos por página:</label>
+    <select id="dropdown3" [(ngModel)]="selectedOption3">
+      <option *ngFor="let item of pageOptions" value={{item}}>{{ item }}</option>
+    </select>
+
+    <button class="button-4" (click)="handleSearch()">Buscar</button>
+    <button class="button-4" (click)="clear()">Limpiar filtros</button>
+</div>
+<app-spinner [showSpinner]="isLoading"></app-spinner>
+<div *ngIf="!isLoading" class="flex jc_c container">
+  <app-table [data]="digimonList" [searchParams]="getSearchParams()" (ultimaImagenCargada)="imagenCargada()"></app-table>
+  <div class="pagination flex_col jc_c ai_c">
+    <div class="flex">
+      <button class="button-4 page-button" [disabled]="isButtonDisabled(false)" (click)="handlePage(false)">Anterior</button>
+      <button class="button-4 page-button" [disabled]="isButtonDisabled(true)" (click)="handlePage(true)">Siguiente</button>
+    </div>
+    <div class="counter">Página: {{ page }} / {{ totalPages }}</div> 
+  </div>
+</div>

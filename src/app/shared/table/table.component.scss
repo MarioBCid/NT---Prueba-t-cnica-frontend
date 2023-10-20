@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+img {
+    margin: 4px 4px 0 4px;
+}
+
+table tr:nth-child(odd) td:first-of-type{
+  background-color: white;
+}
+
+.name-cell {
+    min-width: 600px;
+}

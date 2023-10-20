@@ -1,0 +1,31 @@
+<h1>Aquí encontraras las descripciones de los atributos, niveles y fields disponibles:</h1>
+<h2>Haz click en cualquiera para obtener una descripcion y su imagen en el caso de los fields:</h2>
+<div class="flex" *ngIf="showSpinner()">
+    <div class="flex ai_c table-container">
+        <table>
+            <th>Attributes</th>
+            <tr *ngFor="let item of attributeList" (click)="handleClick(item.href)" key="item.id">
+                <td *ngIf="item.id">{{ item.name }}</td>
+            </tr>
+        </table>
+        <table>
+            <th>Levels</th>
+            <tr *ngFor="let item of levelList" (click)="handleClick(item.href)" key="item.id">
+                <td *ngIf="item.id">{{ item.name }}</td>
+            </tr>
+        </table>
+        <table>
+            <th>Fields</th>
+            <tr *ngFor="let item of fieldList" (click)="handleClick(item.href)" key="item.id">
+                <td *ngIf="item.id">{{ item.name }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="description-box" *ngIf="itemLoaded">
+        <div class="title">{{ itemLoaded.name }}</div>
+        <div class="description">{{ itemLoaded.description }}</div>
+        <img width="50px" *ngIf="itemLoaded.href" [src]="itemLoaded.href" alt="Imagen-digimon" />
+    </div>
+</div>
+<app-spinner [showSpinner]="!showSpinner()"></app-spinner>
+
