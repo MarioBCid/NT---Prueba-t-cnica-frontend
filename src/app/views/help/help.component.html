@@ -21,7 +21,7 @@
             </tr>
         </table>
     </div>
-    <div class="description-box" *ngIf="itemLoaded">
+    <div class="description-box" *ngIf="itemLoaded.name">
         <div class="title">{{ itemLoaded.name }}</div>
         <div class="description">{{ itemLoaded.description }}</div>
         <img width="50px" *ngIf="itemLoaded.href" [src]="itemLoaded.href" alt="Imagen-digimon" />
